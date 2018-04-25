@@ -9,10 +9,11 @@ CREATE TABLE planta(
 
 --Tabla EQUIPO DE COMPUTO
 CREATE TABLE eq_computo(
-	nombre_equipo varchar (250) NOT NULL,
+	id_equipo int NOT NULL,
+	nombre_equipo varchar (250),
 	modelo varchar(250),
 	id_planta  int,
-	CONSTRAINT nombrePK PRIMARY KEY  (nombre_equipo),
+	CONSTRAINT nombrePK PRIMARY KEY  (id_equipo),
 	CONSTRAINT EqComp_Planta FOREIGN KEY (id_planta) references planta(id_planta));
 
 --Tabla TIPO DE ADQUISICION
@@ -68,10 +69,10 @@ create table software(
 	--CHECAR ESTO!!!
 --TABLA DE ASIGNACIONES
 CREATE TABLE asignacion_software(
-	nombre_equipo varchar(250),
+	id_equipo int,
 	id_software int,
-	CONSTRAINT asignacion_softwarePK PRIMARY KEY(nombre_equipo, id_software),
-	CONSTRAINT asignacion_equipoFK FOREIGN KEY (nombre_equipo) REFERENCES eq_computo(nombre_equipo),
+	CONSTRAINT asignacion_softwarePK PRIMARY KEY(id_equipo, id_software),
+	CONSTRAINT asignacion_equipoFK FOREIGN KEY (id_equipo) REFERENCES eq_computo(id_equipo),
 	CONSTRAINT asignacion_softwareFK FOREIGN KEY (id_software) REFERENCES software(id_software));
 
 
