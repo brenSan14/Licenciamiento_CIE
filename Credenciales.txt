@@ -2,3 +2,6 @@ SQL>
 Login
 Admin_Licenciamiento
 Pemsa12345!
+
+
+SELECT @@SERVERNAME, @@SERVICENAME
