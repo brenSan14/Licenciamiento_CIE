@@ -60,10 +60,13 @@ public class Conexion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        //Esto lo mantengo sólo como ejemplo.
         licenciamiento_ciea.conexion.getConexion();
         System.out.println("LA CONEXION SE REALIZO CORRECTAMENTE");
-        Verifica obj = new Verifica();
-        obj.setVisible(true);
+        
+       Eq_Computo obj = new Eq_Computo();
+       obj.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
