@@ -8,6 +8,7 @@ package GUI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,9 +20,14 @@ public class Eq_Computo extends javax.swing.JFrame {
     /**
      * Creates new form Verifica
      */
+    String query;
+    JTable nameModelTable;
+    String [] columnas = new String [3];
+    
     public Eq_Computo() {
         initComponents();
-        CargarEq_Computo();
+        valores();
+        licenciamiento_ciea.conexion.loadTable(query, nameModelTable, columnas);
     }
 
     /**
@@ -33,26 +39,24 @@ public class Eq_Computo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelEquipo_Computo = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Eq_Computo = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        button1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable_Eq_Computo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "id_equipo", "nombre_equipo", "modelo", "id_planta"
+                "id_equipo", "nombre_equipo", "Modelo de equipo", "Ver detalles", "Editar", "Eliminar"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -62,51 +66,60 @@ public class Eq_Computo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable_Eq_Computo);
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 3, 11)); // NOI18N
-        jLabel2.setText("LISTA DE EQUIPOS DE COMPUTO");
+        jLabel2.setText("CATALOGO DE EQUIPOS DE COMPUTO");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+        button1.setLabel("Añadir Equipo de computo");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelEquipo_ComputoLayout = new javax.swing.GroupLayout(jPanelEquipo_Computo);
+        jPanelEquipo_Computo.setLayout(jPanelEquipo_ComputoLayout);
+        jPanelEquipo_ComputoLayout.setHorizontalGroup(
+            jPanelEquipo_ComputoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEquipo_ComputoLayout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addGroup(jPanelEquipo_ComputoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(135, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEquipo_ComputoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(325, 325, 325))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+        jPanelEquipo_ComputoLayout.setVerticalGroup(
+            jPanelEquipo_ComputoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEquipo_ComputoLayout.createSequentialGroup()
+                .addContainerGap(231, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jPanelEquipo_Computo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanelEquipo_Computo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -142,30 +155,30 @@ public class Eq_Computo extends javax.swing.JFrame {
             }
         });
     }
-    static ResultSet res;
-
-    public void CargarEq_Computo(){
-        DefaultTableModel modelo = (DefaultTableModel) jTable_Eq_Computo.getModel();
-        modelo.setRowCount(0);
-        res = licenciamiento_ciea.conexion.Consulta("select * from eq_computo");
-        try{
-            while(res.next()){
-                Vector v = new Vector();
-                v.add(res.getInt(1));
-                v.add(res.getString(2));
-                v.add(res.getString(3));
-                v.add(res.getInt(4));
-                
-                modelo.addRow(v);
-                jTable_Eq_Computo.setModel(modelo);
-            }
-        }catch(SQLException e){
-                    
-        }
+  
+    public void valores(){
+        //Consulta
+        query = "SELECT * FROM eq_computo";
+        
+        //Se asigna el nombre del modelo de la tabla de la interfaz
+        nameModelTable = jTable_Eq_Computo;
+        
+        //Columnas a mostrar
+        columnas[0] ="id_equipo";
+        columnas[1] ="nombre_equipo";
+        columnas[2] ="modelo";
     }
+    
+    public void mostrarPanel(){
+        jPanelEquipo_Computo.setVisible(true);
+    }
+   
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button button1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelEquipo_Computo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_Eq_Computo;
     // End of variables declaration//GEN-END:variables

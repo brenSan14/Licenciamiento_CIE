@@ -23,46 +23,39 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelEquipo_Computo" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelEquipo_Computo" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanelEquipo_Computo">
+    <Container class="javax.swing.JPanel" name="jPanel1">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="649" max="-2" attributes="0"/>
-                      <Component id="button1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="699" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="135" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="246" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+                  <EmptySpace pref="109" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="231" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="23" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="255" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="button1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace pref="250" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="243" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -75,30 +68,18 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable_Eq_Computo">
+            <Component class="javax.swing.JTable" name="jTable_tipo_Adquisicion">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="0">
-                    <Column editable="false" title="id_equipo" type="java.lang.Object"/>
-                    <Column editable="false" title="nombre_equipo" type="java.lang.Object"/>
-                    <Column editable="false" title="Modelo de equipo" type="java.lang.Object"/>
+                  <Table columnCount="4" rowCount="4">
+                    <Column editable="true" title="Tipo de Adquisici&#xf3;n" type="java.lang.Object"/>
                     <Column editable="true" title="Ver detalles" type="java.lang.Object"/>
-                    <Column editable="true" title="Editar" type="java.lang.Object"/>
+                    <Column editable="true" title="Actualizar" type="java.lang.Object"/>
                     <Column editable="true" title="Eliminar" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -128,21 +109,10 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Perpetua Titling MT" size="11" style="3"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="CATALOGO DE EQUIPOS DE COMPUTO"/>
+            <Property name="text" type="java.lang.String" value="Agregar Tipo de Adquisici&#xf3;n"/>
           </Properties>
-        </Component>
-        <Component class="java.awt.Button" name="button1">
-          <Properties>
-            <Property name="label" type="java.lang.String" value="A&#xf1;adir Equipo de computo"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

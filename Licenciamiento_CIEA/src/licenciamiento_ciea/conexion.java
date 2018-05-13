@@ -17,6 +17,9 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.util.Vector;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class conexion {
       static Connection contacto = null;
@@ -40,7 +43,7 @@ public class conexion {
 		return contacto;
 
 	}
-
+        //Metodo para realizar consultas a la base de datos
 	public static ResultSet Consulta(String consulta){
 
 		Connection con = getConexion();
@@ -56,5 +59,29 @@ public class conexion {
 
 		return null;
 	}
+        
+        static ResultSet res;
+    
+        
+    //Método para cargar los datos de la BD en la tabla de la Interfaz
+    public static void loadTable(String query, JTable nameModelTable, String [] columnas){
+	DefaultTableModel modelo = (DefaultTableModel) nameModelTable.getModel();
+	modelo.setRowCount(0);
+	res = licenciamiento_ciea.conexion.Consulta(query);
+	try{
+		while(res.next()){
+                        Vector v = new Vector();
+                        for(int j = 0; j < columnas.length; j ++){
+                                v.add(res.getString(columnas[j]));
+                        }
+                       modelo.addRow(v);
+                       nameModelTable.setModel(modelo);
+                }
+	}catch(SQLException e){
+            System.out.println("Error en la conexión, LoadTable");
+	}
 
+}
+
+        
 }
